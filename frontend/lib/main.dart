@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'services/supabase_service.dart';
 import 'screens/splash_screen.dart';
 import 'screens/welcome_screen.dart';
 import 'screens/signup_screen.dart';
@@ -7,8 +8,11 @@ import 'screens/login_screen.dart';
 import 'screens/forgot_password_screen.dart';
 import 'screens/new_password_screen.dart';
 import 'screens/successpw_screen.dart';
-import 'screens/funfact_loading_screen.dart';
+//import 'screens/funfact_loading_screen.dart';
+import 'screens/loading_screen.dart';
 import 'screens/home_screen.dart';
+
+final SupabaseService supabaseService = SupabaseService();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,7 +73,15 @@ class MyApp extends StatelessWidget {
               onButtonPressed:
                   () => Navigator.pushReplacementNamed(context, '/login'),
             ),
-        '/loading': (context) => const LoadingScreen(),
+        '/loading':
+            (context) => LoadingAnimationWidget(
+              onComplete: () {
+                Navigator.pushReplacementNamed(context, '/home');
+              },
+              backgroundTask: () async {
+                return await supabaseService.getRandomFunFact();
+              },
+            ),
         '/home': (context) => const HomeScreen(),
       },
     );
