@@ -79,7 +79,7 @@ class _SignupScreenState extends State<SignupScreen> {
         elevation: 0,
         title: Row(
           children: [
-            Image.asset('assets/images/logo.png', width: 30, height: 30),
+            Image.asset('assets/images/LOGO.png', width: 30, height: 30),
             const SizedBox(width: 8),
             const Text(
               'SENYA',
@@ -118,14 +118,12 @@ class _SignupScreenState extends State<SignupScreen> {
               isMobile
                   ? Column(
                     mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'assets/images/signup_image.png',
-                        width: screenSize.width * 0.3,
-                      ),
-                      const SizedBox(height: 40),
+                      const Spacer(),
                       _buildSignUpBox(),
+                      const Spacer(),
                     ],
                   )
                   : Row(
@@ -171,7 +169,7 @@ class _SignupScreenState extends State<SignupScreen> {
               const Text(
                 'Sign Up',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
               TextFormField(
@@ -201,7 +199,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     return 'Please enter your email';
                   }
                   if (!RegExp(
-                    r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}\$',
+                    r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
                   ).hasMatch(value)) {
                     return 'Please enter a valid email';
                   }

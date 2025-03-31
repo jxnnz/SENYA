@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jenny\OneDrive\Desktop\Senya-main\Senya-main\build\CMakeFiles\5f478c674c01642e6f895b384536f961\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{9A0A752B-5B1E-3860-AD0E-85342A12055C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

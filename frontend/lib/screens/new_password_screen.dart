@@ -33,22 +33,21 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
     });
 
     try {
-      // This is a simplified version - in a real app, you'd need to handle the recovery token
       await _supabase.auth.updateUser(
-        UserAttributes(
-          password: _passwordController.text,
-        ),
+        UserAttributes(password: _passwordController.text),
       );
-      
+
       if (mounted) {
-        // Navigate to success screen
-        Navigator.pushReplacementNamed(context, '/success');
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Password updated successfully!')),
+        );
+        Navigator.pushReplacementNamed(context, '/login');
       }
     } catch (error) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: ${error.toString()}')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Error: ${error.toString()}')));
       }
     } finally {
       if (mounted) {
@@ -68,7 +67,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
         title: Row(
           children: [
             Image.asset(
-              'assets/images/logo.png', // Replace with your actual logo image path
+              'assets/images/LOGO.png', // Replace with your actual logo image path
               width: 30, // Adjust size as needed
               height: 30,
             ),
@@ -132,7 +131,9 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                               labelText: 'Create New Password',
                               suffixIcon: IconButton(
                                 icon: Icon(
-                                  _obscurePassword ? Icons.visibility : Icons.visibility_off,
+                                  _obscurePassword
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                 ),
                                 onPressed: () {
                                   setState(() {
@@ -146,8 +147,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                               if (value == null || value.isEmpty) {
                                 return 'Please enter a new password';
                               }
-                              if (value.length < 6) {
-                                return 'Password must be at least 6 characters';
+                              if (value.length < 8) {
+                                return 'Password must be at least 8 characters';
                               }
                               return null;
                             },
@@ -159,11 +160,14 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                               labelText: 'Confirm Password',
                               suffixIcon: IconButton(
                                 icon: Icon(
-                                  _obscureConfirmPassword ? Icons.visibility : Icons.visibility_off,
+                                  _obscureConfirmPassword
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                 ),
                                 onPressed: () {
                                   setState(() {
-                                    _obscureConfirmPassword = !_obscureConfirmPassword;
+                                    _obscureConfirmPassword =
+                                        !_obscureConfirmPassword;
                                   });
                                 },
                               ),

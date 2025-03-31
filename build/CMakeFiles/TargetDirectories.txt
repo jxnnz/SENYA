@@ -1,0 +1,5 @@
+C:/Users/jenny/OneDrive/Desktop/Senya-main/Senya-main/build/CMakeFiles/flutter_wrapper_plugin.dir
+C:/Users/jenny/OneDrive/Desktop/Senya-main/Senya-main/build/CMakeFiles/flutter_wrapper_app.dir
+C:/Users/jenny/OneDrive/Desktop/Senya-main/Senya-main/build/CMakeFiles/flutter_assemble.dir
+C:/Users/jenny/OneDrive/Desktop/Senya-main/Senya-main/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/jenny/OneDrive/Desktop/Senya-main/Senya-main/build/CMakeFiles/ZERO_CHECK.dir

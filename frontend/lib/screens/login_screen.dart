@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
         elevation: 0,
         title: Row(
           children: [
-            Image.asset('assets/images/logo.png', width: 30, height: 30),
+            Image.asset('assets/images/LOGO.png', width: 30, height: 30),
             const SizedBox(width: 8),
             const Text(
               'SENYA',
@@ -109,14 +109,12 @@ class _LoginScreenState extends State<LoginScreen> {
               isMobile
                   ? Column(
                     mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'assets/images/Login_Image.png',
-                        width: screenSize.width * 0.4,
-                      ),
-                      const SizedBox(height: 40),
+                      const Spacer(),
                       _buildLoginBox(),
+                      const Spacer(),
                     ],
                   )
                   : Row(
@@ -166,9 +164,9 @@ class _LoginScreenState extends State<LoginScreen> {
               const Text(
                 'Log In',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 35),
               TextFormField(
                 controller: _emailController,
                 focusNode: _emailFocusNode,
@@ -223,7 +221,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextButton(
                   onPressed:
                       () => Navigator.pushNamed(context, '/forgot-password'),
-                  child: const Text('Forgot Password?'),
+                  child: const Text(
+                    'Forgot Password?',
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      decorationColor: Color(0xFFFF7904),
+                      color: Color(0xFFFF7904),
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
